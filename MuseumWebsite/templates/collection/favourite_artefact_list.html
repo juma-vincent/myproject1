@@ -1,0 +1,71 @@
+{% extends 'collection/base.html' %}
+{% load static %} 
+{% load crispy_forms_tags %}
+
+
+{% block content %} 
+
+<div class=" favouritesBlock">
+        <div >
+                <div class="mb-1 mt-1 border-bottom ">
+                    <h1 class="ml-5"> <small class="ml-5">Your Favourite Artefacts </small>  </h1>      
+                </div>
+  
+      
+                <div class="d-flex flex-row ">
+                
+                        
+                        <div class="flex-wrap justify-content-center p-1 middleSection ">          
+                                {% for item in favourite_artefacts %}
+                                
+                                {% if forloop.counter0|divisibleby:4 %}
+                                <br/>
+                                {% endif%}
+                                
+                                
+                                        <div class="d-inline-flex p-1 ml-0">
+                                                
+                                                                
+                                                <div class="myCard  p-2 text-center flex-fill">
+                                                        <a href="{{item.get_absolute_url}}"><img src="{{ item.image.url}}" alt="{{ item.title }}" 
+                                                                class="img-fluid objects rounded mx-auto"></a>
+                                                        <div class="">
+
+                                                                <p ><a href="{{item.get_absolute_url}}" class='text-decoration-none detailLink'> 
+                                                                {{ item.title }}  
+                                                                </a> 
+                                                                                                                
+                                                                <br/> <small>Artist :  {{item.artist}} </small>
+                                                                
+                                                                </p> 
+                                                                
+                                                                                                        
+                                                        </div>
+
+                                                
+                                                </div>
+                                        </div> 
+                                
+                                {% empty %}
+                                <div class="emptyFavourites">
+                                        No Favourite Artefacts yet!
+                                </div>
+                                <!-- <div class="mt-5"> 
+                                        <small>You have bookmarked the above artefacts</small>
+                                      </div>   
+                                 -->
+                                {% endfor %}
+                        </div> 
+        
+   
+  
+        
+                </div>    
+
+        
+
+        </div>
+             
+</div>
+{% endblock %} 
+

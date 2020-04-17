@@ -1,0 +1,127 @@
+{% extends 'collection/base.html' %} 
+{% load static %} 
+{% load crispy_forms_tags %}
+
+{% block title %}{{artefact.title}} {% endblock %} 
+
+{% block content %} 
+
+
+<div class="d-flex flex-row mt-3 leftPadding">    
+    <h5 class='h3 w-75'>{{artefact.title}}</h5>
+</div>
+
+<div class='d-flex flex-row  pb-2 leftPadding'> 
+    <div class="text-primary lead d-inline-flex pl-1 pr-3"> Published on {{artefact.publish_date}} </div> 
+    <div class="text-success lead d-inline-flex pr-3"> Artist: {{artefact.artist}} </div>
+    <div class="text-info lead d-inline-flex pr-3">  {{ total_comments }} comment{{ total_comments|pluralize }} </div>
+</div> 
+
+<div class='d-flex flex-row  pb-2 leftPadding '> 
+
+        <img src="{{ artefact.image.url}}" alt="{{ artefact.title }}" width="900" height="800" class="rounded detailImg">
+        
+</div>
+{% if user.is_authenticated %}
+        {% if is_favourite %}
+            <div class='d-flex flex-row  pt-3 pb-2 leftPadding'>
+                <div>
+                    <a  href="{% url 'favourite_artefact' id=artefact.id %}">                     
+                
+                    <svg class="bi bi-heart-fill" width="2.3em" height="2.3em" viewBox="0 0 16 16" fill="red" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z" clip-rule="evenodd"/>
+                      </svg>
+
+                    </a> 
+                </div> 
+                
+                <div class="ml-3 mt-1  ">
+                    <a href="{% url 'favourite_artefact' id=artefact.id %}"> <button class="btn btn-outline-success addedFavourite"> Added to favourites </button></a>
+                </div>       
+            </div>
+        {%else%}
+            <div class='d-flex flex-row  pt-3 pb-2 leftPadding'>
+                <div>
+                    <a  href="{% url 'favourite_artefact' id=artefact.id %}">
+                        <svg class="bi bi-heart" width="2.3em" height="2.3em" viewBox="0 0 16 16" fill="red" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 01.176-.17C12.72-3.042 23.333 4.867 8 15z" clip-rule="evenodd"/>
+                        </svg>
+                    </a>
+                
+                </div>
+                <div class="ml-3 mt-1  ">
+                    <a href="{% url 'favourite_artefact' id=artefact.id %}"> <button class="btn btn-outline-info addFavourite"> Add to favourites </button></a>
+                </div>             
+            </div>
+        {% endif%}
+{% else %}  
+        <div class='d-flex flex-row  pt-3 pb-2 leftPadding'>
+            <div>
+                <a  href="{% url 'login' %}">
+                    <svg class="bi bi-heart" width="2.3em" height="2.3em" viewBox="0 0 16 16" fill="red" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 01.176-.17C12.72-3.042 23.333 4.867 8 15z" clip-rule="evenodd"/>
+                    </svg>
+                </a>
+            
+            </div>
+            <div class="ml-3 mt-1  ">
+                <a href="{% url 'login' %}"> <button class="btn btn-outline-info addFavourite"> Add to favourites </button></a>
+            </div>            
+        </div>
+{% endif %} 
+
+
+<div class='d-flex flex-row  pt-2 leftPadding'>
+    <div> <h4> Description </h4></div>        
+</div>
+
+<div class='d-flex flex-row  pt-2 leftPadding w-75'>   
+        
+         {{artefact.description}} 
+</div>
+
+<div class='d-flex flex-row  pt-5 leftPadding'>
+    <div>  <small class="font-weight-bold">DIMENSIONS : </small> {{artefact.dimensions}} </div>        
+</div>
+<div class='d-flex flex-row  pt-2 leftPadding'>
+    <div> <small class="font-weight-bold"> ACCESSION NUMBER :</small> {{artefact.accession_number}} </div>        
+</div>
+
+<div class='d-flex flex-row  pt-2 leftPadding'>
+    <div><small class="font-weight-bold"> CREDIT LINE :</small> {{artefact.credit_line}} </div>        
+</div>
+
+<div class=" d-flex pt-3 leftPadding w-75 text-secondary "> 
+    <button class="btn btn-outline commentBtn "><span class="font-weight-bold lead"> {{ total_comments }} comment{{ total_comments|pluralize }}</span> </button>
+</div>
+{% for comment in comments %}
+<div class='d-flex flex-row text-primary pt-2 pb-0 leftPadding w-75'>
+    Comment {{ forloop.counter }}  by {{comment.name}} on {{comment.created}} 
+</div>
+
+<div class='d-flex flex-row  leftPadding w-50'>    
+    {{ comment.body}}
+</div>
+
+{% empty %}
+<div class='d-flex flex-row  pt-2 leftPadding w-75'>
+   <p>There are no comments yet.</p>    
+</div>
+        
+{% endfor %}
+
+
+<div class='d-flex flex-row  pt-3 leftPadding w-75'>   
+  <h5 class=' text-primary' >Leave a comment</h5> 
+</div>
+
+<div class='d-flex flex-row pb-5 pt-3 leftPadding '>        
+        <form action="" method="post">
+            <div class="formWidth">{{ comment_form|crispy}}</div>
+            {% csrf_token %} 
+            <button type="submit" class="btn btn-primary">Post Comment</button>
+
+        </form>
+</div>
+   
+{% endblock %} 

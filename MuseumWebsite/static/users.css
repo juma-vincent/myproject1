@@ -1,0 +1,84 @@
+
+.loginBlock {
+    margin-left: 300px ;
+    width: 800px;
+    background-color: rgb(237, 238, 223);
+    margin-top: 0px;
+    margin-bottom: 5px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    height: 600px;
+                    
+}
+   
+.logoutBlock {
+    margin-left: 0px ;
+    padding-left: 400px;
+    width: cover;
+    background-color: rgb(237, 238, 223);
+    margin-top: 0px;
+    margin-bottom: 5px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    height: 600px;
+                    
+}
+
+.profileBlock {
+    margin-left: -300px ;
+    padding-left: 400px;
+    width: cover;
+    background-color: rgb(237, 238, 223);
+    margin-top: 0px;
+    margin-bottom: 5px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    height: 800px;
+}    
+
+.registerFormBlock {
+    margin-left: 300px ;
+    width: 800px;
+    background-color: rgb(237, 238, 223);
+    margin-top: 0px;
+    margin-bottom: 5px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+                    
+}
+.userForm {
+    width: 500px;
+    margin-left: 150px ;
+}
+
+.profileUpdateForm{
+width: 400px;
+margin-top:50px ;
+}
+
+/* Small devices (smartphones, 576px and above) */
+    
+@media( min-width: 576px) {
+    .banner {
+        height: 200px;
+    }
+}
+
+    
+/* Medium devices (tablets, 768px and above) */
+
+@media( min-width: 768px) {
+    .banner {
+        height: 300px;
+    }
+}
+/* Large devices (desktops, 992px and above) */
+
+@media( min-width: 992px) {
+    .banner {
+        height: 560px;
+    }
+}
+/* Extra Large devices ( large desktops, 1200px and above) */
+
+@media( min-width: 1200px) {}

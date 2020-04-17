@@ -1,0 +1,77 @@
+.favouritesBlock {
+    margin-left: 0px ;
+    padding-left: 300px;
+    width: cover;
+    background-color: rgb(237, 238, 223);
+    margin-top: 0px;
+    margin-bottom: 5px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    height: auto;
+                    
+}
+.profileFavourites{
+    margin-left: 300px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.favouritesBtn{
+    background-color: rgb(80, 224, 24); 
+    border:  rgb(84, 226, 28);
+    /* border: 1px solid rgb(223, 175, 86); */
+    color: white;
+}
+.favouritesBtn:hover {
+        
+    background-color: rgb(252, 194, 6);
+    border: 1px solid rgb(241, 187, 8);
+    color:white;
+    text-decoration: none ;
+    
+}
+.addFavourite{
+    font-family: oswald;
+    font-weight: bold;
+    font-size: 13px;
+    color: rgb(9, 121, 158);
+    
+}
+
+.addedFavourite{
+    font-family: oswald;
+    font-weight: bold;
+    font-size: 13px;
+    color: rgb(44, 158, 9);
+    
+}
+
+.detailImg {
+    box-shadow: rgb(87, 83, 83) 7px 7px 7px;
+    
+}
+
+.emptyFavourites{
+    padding-left: 117px; 
+    height: 400px;
+}
+.downpart{
+    background-color: cadetblue;
+    margin-left: 150px;
+}
+.homText{
+    width:250px;
+}
+.h6Color{
+    color: rgb(189, 77, 25) ;
+
+}
+.commentBtn{
+   
+    border:  white;        
+    color: rgb(114, 111, 110)  ;
+    font-weight: 500;
+    font-size: 14px;
+        
+    background-color: white;
+    border-bottom: 2px solid rgb(114, 111, 110) ;
+}

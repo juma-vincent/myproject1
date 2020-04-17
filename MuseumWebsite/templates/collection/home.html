@@ -1,0 +1,59 @@
+{% extends 'collection/base.html' %}
+{% load static %} 
+
+{% block content %}
+
+<div class="d-flex flex-row ">
+       
+        <div class=" leftSection    ">
+                <h6 class=" h6Color pl-5">The Collection Database </h6>
+                <p class="pl-5"> <small>The Museum’s collection online offers everyone unparalleled access to
+                         objects in the collection. This innovative database is one of the earliest and 
+                         most extensive online museum search platforms in the world. The collection database
+                         is an extraordinary historical record. It presents a history not just of objects, 
+                         but of the way they have been documented and understood over centuries, and makes this 
+                         available to the widest possible audience.</small> 
+                </p>
+                
+        </div>
+        
+        <div class="flex-wrap justify-content-center p-1 middleSection ">          
+                {% for artefact in artefacts %}
+                    
+                {% if forloop.counter0|divisibleby:4 %}
+                <br/>
+                       {% endif%}
+                
+                
+                        <div class="d-inline-flex p-1 ">
+                                
+                                                
+                                <div class="myCard  p-2 text-center flex-fill">
+                                        <a href="{{artefact.get_absolute_url}}"><img src="{{ artefact.image.url}}" alt="{{ artefact.title }}" 
+                                                 class="img-fluid objects rounded mx-auto"></a>
+                                        <div class="">
+
+                                                <p ><a href="{{artefact.get_absolute_url}}" class='text-decoration-none detailLink'> 
+                                                       {{ artefact.title }}  
+                                                     </a> 
+                                                                                                  
+                                                       <br/> <small>Artist :  {{artefact.artist}} </small>
+                                                       
+                                                </p> 
+                                                   
+                                                                                         
+                                        </div>
+
+                                       
+                                </div>
+                        </div> 
+                        
+                {% endfor %}
+        </div> 
+        <div class="rightSection "> 
+        </div> 
+   
+  
+        
+</div>    
+{% endblock %}

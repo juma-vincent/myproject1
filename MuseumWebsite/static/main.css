@@ -1,0 +1,166 @@
+    .navBar {
+        background-color: whitesmoke;
+        height: 100px;
+        
+    }
+        
+    .navBtn{
+        /* background-color: rgb(243, 221, 179);  */
+        background-color: rgb(250, 248, 243);
+        border:  white;
+        /* border: 1px solid rgb(223, 175, 86); */
+        color: rgb(189, 77, 25) ;
+        font-weight: 500;
+        font-size: 14px;
+        border-bottom: 2px solid rgb(189, 77, 25) ;
+    }
+    #navbarSupportedContent {
+        padding-left: 500px;
+        margin-top: -30px;
+    }
+    .logo {
+        /* background-color: wheat; */
+        /* color: white; */
+        padding: 5px;
+        height: 100px;
+    }
+     
+    
+                         
+    .footer {
+        background-color: rgb(189, 77, 25);
+        color: white;
+        padding: 20px;
+        height: 100px;
+    }
+        
+    .popMessages{
+      margin-left: 300px;  
+      width: 500px;
+    }
+    .testBox {
+        background-color: grey;
+        color: white;
+        padding: 20px;
+        border: 1px solid black;
+    }
+    
+    .objects {
+        width: 350px;
+        height: 300px;
+    }
+    
+    .banner {
+        height: auto;
+        background-image: url('../static/img/slider-NMK.png');        
+        background-size: cover;
+        background-position: center -100px;
+        background-repeat: no-repeat;  
+        animation : slide 20s infinite;     
+       
+    }
+    
+    
+    .myCard {
+        border: 1px solid white;
+    }
+    
+    .myCard img {
+        width: 150px;
+        height: 150px;
+        
+    }
+    .detailLink:hover {
+     color: rgb(248, 165, 10);
+    }
+    
+    .leftPadding {
+        padding-left: 100px;
+    }
+    
+    .navBtn:hover {
+        
+        background-color: rgb(248, 165, 10);
+        border: 1px solid rgb(231, 154, 10);
+        color:white;
+        text-decoration: none ;
+        
+    }
+    .leftSection {
+        border: 1px solid white;
+        width: 360px;
+        margin-left: 0px;
+        padding: 40px;
+        
+    }
+    .middleSection {
+        width: 800px;
+        margin-top: 10px;
+    }
+    
+    .rightSection {
+        width: 150px;
+    }
+    
+    .textColor {
+        color: black;
+    }
+    a {
+        color: black;
+        text-decoration: none;
+        background-color: transparent;
+    }
+    
+    .myCard a {
+        color: blue;
+        text-decoration: none;
+        background-color: transparent;
+    }
+    
+    /* a:hover {
+        color: rgb(231, 118, 13);
+        text-decoration: underline;
+    } */
+
+    .formWidth{
+        width: 600px;
+    }
+
+    @keyframes slide{
+        25%{
+            background-image: url('../static/img/slider-NMK.png');   
+        }
+        50%{
+            background-image: url('../static/img/cradle.png');             
+        }
+        75%{
+            background-image: url('../static/img/dinosaur.jpg');  
+        }
+    }
+    
+    /* Small devices (smartphones, 576px and above) */
+    
+    @media( min-width: 576px) {
+        .banner {
+            height: 200px;
+        }
+    }
+    
+        
+    /* Medium devices (tablets, 768px and above) */
+    
+    @media( min-width: 768px) {
+        .banner {
+            height: 300px;
+        }
+    }
+    /* Large devices (desktops, 992px and above) */
+    
+    @media( min-width: 992px) {
+        .banner {
+            height: 560px;
+        }
+    }
+    /* Extra Large devices ( large desktops, 1200px and above) */
+    
+    @media( min-width: 1200px) {}
